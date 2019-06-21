@@ -1,11 +1,39 @@
 import React from 'react'
+import Card from './Card';
+import  {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
-const Contacts = (props) => {
-    return (
-        <div>
-              contacts
-        </div>
-    )
+
+class Contacts extends  React.Component {
+    
+    state  ={}
+    componentWillMount(){
+          this.renderCards()
+    }
+    
+    renderCards = ()=>{
+          let temp =  this.props.contacts
+          let list =  temp.map((x)=>{
+                return <Card key={`${x.id}`} name={x.data.name} email={x.data.email} relationship={x.data.relationship} phone={x.data.phone} />
+          })
+
+          return list
+    }
+
+    render(){
+          return(
+               <div>
+                    {this.renderCards()}
+               </div>
+          )
+     }
 }
 
-export default Contacts
+
+function mapStatetToProps(state){
+     return{
+          contacts:state.contacts
+     }
+}
+
+export default connect(mapStatetToProps)(Contacts)

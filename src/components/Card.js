@@ -11,7 +11,7 @@ const Card = ({name,email,relationship,phone}) => {
                     <li>{relationship}</li>
                     <li>{phone}</li>
                 </ul>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                < button className="btn btn-dark">Delete</button>
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ class Contacts extends  React.Component {
     renderCards = ()=>{
           let temp =  this.props.contacts
           let list =  temp.map((x)=>{
-                return <Card key={`${x.id}`} id={x.id} name={x.data.name} email={x.data.email} relationship={x.data.relationship} phone={x.data.phone} />
+                return <Card key={`${x.id}`}  a={x.id} name={x.data.name} email={x.data.email} relationship={x.data.relationship} phone={x.data.phone} />
           })
 
           return list
@@ -26,7 +26,7 @@ class Contacts extends  React.Component {
 
     render(){
           return(
-               <div>
+               <div className="container card-columns">
                     {this.renderCards()}
                </div>
           )

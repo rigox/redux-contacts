@@ -7,7 +7,8 @@ export default function(state=initialState,action){
        case MAKE_CONTACT:
        return [...state,action.payload]
        case REMOVE_CONTACT:
-       return  [...state,action.payload]
+           console.log(action.payload.id)
+           return state.filter(x => x.id!==action.payload.id)
         default:
         return state
 
